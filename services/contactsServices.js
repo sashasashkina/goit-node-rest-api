@@ -48,9 +48,6 @@ export async function updateById(id, data) {
   }
   contacts[index] = { ...contacts[index], ...data };
 
-  //   const currentContact = contacts[index];
-  //   const updateContact = { ...currentContact, ...data };
-  //   contacts[index] = updateContact;
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
 
   return contacts[index];
