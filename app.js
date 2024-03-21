@@ -4,6 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 import contactsRouter from "./routes/contactsRouter.js";
+import { BD_HOST } from "./config.js";
 
 const app = express();
 
@@ -22,8 +23,6 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-const BD_HOST =
-  "mongodb+srv://Aleksa:EHFf2TxGiZA14RUi@cluster0.b5nbwes.mongodb.net/my-contacts?retryWrites=true&w=majority&appName=Cluster0";
 mongoose
   .connect(BD_HOST)
   .then(() => {
