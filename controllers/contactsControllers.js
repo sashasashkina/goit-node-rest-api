@@ -26,14 +26,14 @@ export const getAllContacts = async (req, res) => {
 //   res.json(result);
 // };
 
-// export const createContact = async (req, res) => {
-//   const { name, email, phone } = req.body;
-//   const result = await contactsService.addContact(name, email, phone);
-//   if (!result) {
-//     throw HttpError(404);
-//   }
-//   res.status(201).json(result);
-// };
+export const createContact = async (req, res) => {
+  const { name, email, phone } = req.body;
+  const result = await contactsService.addContact(name, email, phone);
+  if (!result) {
+    throw HttpError(404);
+  }
+  res.status(201).json(result);
+};
 
 // export const updateContact = async (req, res) => {
 //   const { id } = req.params;
@@ -51,6 +51,6 @@ export const ctrl = {
   getAllContacts: ctrlWrapper(getAllContacts),
   // getOneContact: ctrlWrapper(getOneContact),
   // deleteContact: ctrlWrapper(deleteContact),
-  // createContact: ctrlWrapper(createContact),
+  createContact: ctrlWrapper(createContact),
   // updateContact: ctrlWrapper(updateContact),
 };
