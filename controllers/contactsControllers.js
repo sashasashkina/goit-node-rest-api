@@ -48,13 +48,17 @@ export const updateContact = async (req, res) => {
 
 export const updateStatusContact = async (req, res) => {
   const { id } = req.params;
-  const favoredContact = await contactsService.updateStatusById(id, req.body, {
-    new: true,
-  });
-  if (!favoredContact) {
+  const favoredContactId = await contactsService.updateStatusById(
+    id,
+    req.body,
+    {
+      new: true,
+    }
+  );
+  if (!favoredContactId) {
     throw HttpError(404);
   }
-  res.status(200).json(favoredContact);
+  res.status(200).json(favoredContactId);
 };
 
 export const ctrl = {
